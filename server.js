@@ -11,6 +11,7 @@ var cheerio = require("cheerio");
 
 // Require all models
 var db = require("./models");
+var routes = require("./routes/api.js");
 
 var PORT = 8080;
 
@@ -32,8 +33,8 @@ app.set("view engine", "handlebars");
 // By default mongoose uses callbacks for async queries, we're setting it to use promises (.then syntax) instead
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/mongoHeadlines", {
-  useMongoClient: true
+mongoose.connect("mongodb://localhost/newscrapedb", {
+  // useMongoClient: true
 });
 
 // Start the server
